@@ -10,11 +10,12 @@ const data = [
 ];
 
 function App() {
+  const [expense, setExpense] = useState([]);
   const newData = (newExpense) => {
-    console.log(newExpense);
-    setExpense([newExpense, ...data]);
+    // console.log(newExpense);
+    setExpense([...expense, newExpense]);
+    console.log(expense);
   };
-  const [expense, setExpense] = useState(data);
 
   return (
     <div>

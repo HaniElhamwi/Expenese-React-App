@@ -46,14 +46,24 @@ const ExponseForm = (props) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTitleValue,
-      amount: enteredAmountValue,
+      amount: +enteredAmountValue,
       date: new Date(enteredDateValue),
     };
+    // const expenseData = {
+    //   title: enteredTitle,
+    //   amount: +enteredAmount,
+    //   date: new Date(enteredDate),
+    // };
+
     props.onSaveDate(expenseData);
     setEnteredTitleValue("");
     setEnteredAmountValue("");
     setEnteredDAteValue("");
   };
+  function closeLabel() {
+    // props.closeAddExpenseLabel();
+    props.closeExpenseLabel();
+  }
 
   return (
     <form onSubmit={dataHandler}>
@@ -90,6 +100,9 @@ const ExponseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="submit" onClick={closeLabel}>
+          Cansel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

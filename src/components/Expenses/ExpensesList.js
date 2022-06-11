@@ -7,6 +7,7 @@ function ExpensesList(props) {
     return <p className="expenses-list__fallback">found no data.</p>;
   }
 
+  console.log(props.items);
   return (
     <div className="expenses-list">
       {props.items.map((elemnt) => (

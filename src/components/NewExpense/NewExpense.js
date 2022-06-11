@@ -11,14 +11,24 @@ const NewExpense = (props) => {
     };
     console.log(addNewData);
     props.newExpenseValue(addNewData);
+    setAddExpenseLabel(2);
   }
   function openAddExpenseLabel() {
     setAddExpenseLabel(1);
   }
+  function closeExpenseLabel() {
+    console.log("hani");
+    setAddExpenseLabel(2);
+  }
 
   return (
     <div className="new-expense">
-      {addExpenseLabel === 1 && <ExponseForm onSaveDate={newExpenseData} />}
+      {addExpenseLabel === 1 && (
+        <ExponseForm
+          onSaveDate={newExpenseData}
+          closeExpenseLabel={closeExpenseLabel}
+        />
+      )}
       {addExpenseLabel === 2 && (
         <button onClick={openAddExpenseLabel}>Add Expense</button>
       )}
